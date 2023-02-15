@@ -266,6 +266,7 @@ nav.open .sidebar {
       padding-top: 5%;
     }
     body{
+      margin-top: 0%;
       background-size: 120%;
     }
     .hero{
@@ -278,7 +279,7 @@ font-size: medium;
 margin-bottom: 15%;
     }
     .sidebar{
-      height: 72.5%;
+      height: 100%;
       justify-content: space-between;
     }
    
