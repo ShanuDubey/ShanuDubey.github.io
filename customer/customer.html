@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--Created by Shraddha Dubey -->
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank of Etawah</title>
+    <link rel="stylesheet"
+    href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
+
+        <!--font awesome-->
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      />
+
+
+    <!--css file-->
+    <link rel="stylesheet" href="customer.css" />
+  </head>
+  <body>
+    
+    <!-- navbar starts here  -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/index.html">Bank of Etawah</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="/index.html">Home </a>
+              </li>
+
+          </ul>
+      </div>
+  </nav>
+  <!-- navbar ends here  -->
+    <div class="my-info text-center">
+       <h1>Name: Shraddha Dubey</h1>
+       <h2>Net Bank Balance: ₹<span id="myAccountBalance">10000</span></h2>
+       
+       <button class="btn btn-info" data-toggle="modal" data-target="#sendMoney">Send Money</button>
+       <a class="btn btn-info" href="" data-toggle="modal" data-target="#transactionHistory">See All Transactions</a>
+    </div>
+
+    <!-- Modal send money -->
+    <div class="modal fade" id="sendMoney" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Send Money</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="input-group mb-3">
+                            <input type="text" id="enterName" class="form-control" placeholder="Recipient's username"
+                                aria-label="Recipient's username" aria-describedby="basic-addon2" autocomplete="off">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">₹</span>
+                            </div>
+                            <input type="text" id="enterAmount" class="form-control" placeholder=" Enter Amount"
+                                aria-label="Amount (to the nearest dollar)" autocomplete="off">
+
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" onclick="sendMoney()" class="btn btn-success" data-dismiss="modal">Send
+                        Money</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+        <!-- Modal transaction History-->
+        <div class="modal fade" id="transactionHistory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Transaction History</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ol id="transaction-history-body">
+
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- table creation -->
+    
+    <div class = "tableborder">
+
+    </div>
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr class="table-info">
+                        <th scope="col">S.No.</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Bank Balance(in ₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-light">
+                        <td scope="row">1</td>
+                        <td>Prabal Dubey</td>
+                        <td>prabal7632@gmail.com</td>
+                        <td>
+                            <p id="prabal7632BankBalance">500</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">2</td>
+                        <td>Ankit Jaiswal</td>
+                        <td>ankit555@gmail.com</td>
+                        <td>
+                            <p id="ankit555BankBalance">10</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">3</td>
+                        <td>Yamini</td>
+                        <td>yamini44@gmail.com</td>
+                        <td>
+                            <p id="yamini44BankBalance">10</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">4</td>
+                        <td>Vishal Sharma</td>
+                        <td>vishal@gmail.com</td>
+                        <td>
+                            <p id="vishalBankBalance">40</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">5</td>
+                        <td>Alisha Khan</td>
+                        <td>alisha54@gmail.com</td>
+                        <td>
+                            <p id="alisha54BankBalance">7</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">6</td>
+                        <td>Sandhya Verma</td>
+                        <td>prashant143@gmail.com</td>
+                        <td>
+                            <p id="prashant143BankBalance">103</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">7</td>
+                        <td>Jyoti Verma</td>
+                        <td>shivam143@gmail.com</td>
+                        <td>
+                            <p id="shivam143BankBalance">82</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">8</td>
+                        <td>Anshika Mishra</td>
+                        <td>bhut-door-hai@gmail.com</td>
+                        <td>
+                            <p id="bhut-door-haiBankBalance">68</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">9</td>
+                        <td>Sachin Bhati</td>
+                        <td>sachin23@gmail.com</td>
+                        <td>
+                            <p id="sachin23BankBalance">100</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">10</td>
+                        <td>Pratibha Gupta</td>
+                        <td>sanyasi@gmail.com</td>
+                        <td>
+                            <p id="sanyasiBankBalance">57</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <div class="content">
+          <div class="left box">
+            <div class="top">
+              <div class="title">About Us</div>
+              <p>
+                Bank of Etawah is an online banking platform which is free and affordable .
+                No mantainance charge.
+              </p>
+            </div>
+            <div class="bottom">
+              <div class="title">Contact Us</div>
+              <div class="phone">
+                <a href="#">
+                  <i class="fas fa-phone-volume"></i>+919999999999
+                </a>
+              </div>
+              <div class="mail">
+                <a href="#">
+                  <i class="fas fa-envelope"></i>shraddhadubey@gmail.com
+                </a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="middle box">
+            <div class="title">Quick Links</div>
+            <div>
+              <a href="#">Banking Forms</a>
+            </div>
+            <div>
+              <a href="#">BOE FasTags</a>
+            </div>
+            <div>
+              <a href="#">NRI Schemes</a>
+            </div>
+            <div>
+              <a href="#">Services</a>
+            </div>
+            <div>
+              <a href="#">Support</a>
+            </div>
+            <div>
+              <a href="#">Partners</a>
+            </div>
+          </div>
+    
+          <div class="right box">
+            <div class="title">Subscribe Us</div>
+            <form action="#">
+              <input type="email" placeholder="enter email address" required>
+              <input type="submit" value="Subscribe">
+              <div class="socials">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </form>
+          </div>
+        </div>
+    
+        <div class="copyright">
+          <p>Copyright &#169 2023
+            <a href="#">ShanuDubey</a> All right reserved
+          </p>
+        </div>
+      </footer>
+
+   <script src="./app1.js"></script>
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+   <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+   <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+  </body>
+</html>
