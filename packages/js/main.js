@@ -210,3 +210,44 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+        let isValid = true;
+
+        // Clear previous error messages
+        document.querySelectorAll('.error-message').forEach(function(el) {
+            el.textContent = '';
+        });
+
+        // Validate Name
+        const name = document.getElementById('name').value;
+        if (name.trim() === '') {
+            isValid = false;
+            document.getElementById('nameError').textContent = 'Name is required.';
+        }
+
+        // Validate Email
+        const email = document.getElementById('email').value;
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!emailPattern.test(email)) {
+            isValid = false;
+            document.getElementById('emailError').textContent = 'Enter a valid email address.';
+        }
+
+        // Validate Subject
+        const subject = document.getElementById('subject').value;
+        if (subject.trim() === '') {
+            isValid = false;
+            document.getElementById('subjectError').textContent = 'Subject is required.';
+        }
+
+        // Validate Message
+        const message = document.getElementById('message').value;
+        if (message.trim() === '') {
+            isValid = false;
+            document.getElementById('messageError').textContent = 'Description is required.';
+        }
+
+        if (!isValid) {
+            event.preventDefault();
+        }
+    });
